@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "webpack serve --open",
-    "build": "del-cli dist && webpack --mode production"
+    "build": "del-cli dist && webpack --mode production",
+    "devStart": "nodemon app.js"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
