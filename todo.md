@@ -15,20 +15,6 @@ Enter: Trip
 => KISS 
 => Grpahic
 => Loadsheet
--------------------------
 
-Fuel Internal Rules: 
-1 hour Reserve
-=> Check OM LFTA 
-For start-up, taxiing and check before take-off, following quantities have to be added:
-• Piper PA-44-180 25 litres
-• C182 15 litres
-• C172S 15 litres
-• C172l/N 10 litres
-• PA28 Cadet/Warrior 10 litres
-
-Contingency fuel = 10%
-Flight Reserve = 1 hour
-
----------------------------
-
+make metric vs non-metric switch or both calc. 
+store data values on server
