@@ -8,19 +8,63 @@
   <nav>
     <p>Logo</p>
   </nav>
-  <main>
-    <p>Read the in depth Documentation</p>
-    <p>Select A/C: _____</p>
-    <p>Mass and Balance</p>
-    <p>Pilot</p>
-    <p>PAX</p>
-    <p>Baggage</p>
-    <p>Fuel</p>
-    <p>Taxi</p>
-    <p>Trip</p>
-    <p>Centre of Gravity Graph</p>
-    <p>Generate Loadsheet</p>
-  </main>
+  <section>
+        <p>Select A/C to calculate Mass and Balance</p>
+        <select class="custom-select">
+            <option selected>Select Club Airplane</option>
+            <option value="1">LX-AIB</option>
+            <option value="2">LX-AIF</option>
+            <option value="3">LX-AIG</option>
+            <option value="3">LX-AIW</option>
+        </select>
+        <p>Inputs</p>
+        <h2>MASS AND BALANCE: </h2> <!--Change font; JS Selected A/C to be named-->
+        <hr>
+        <h6>Traffic Load</h6>
+        <form action="">
+          <div class="form-group">
+            <label class="form-control-label"><span class="badge badge-soft-primary">CREW</span></label>
+            <input type="text" class="form-control" placeholder="enter mass in kg">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label"><span class="badge badge-soft-primary">PAX</span></label>
+            <input type="text" class="form-control" placeholder="Default input">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label"><span class="badge badge-soft-primary">BAGGAGE</span></label>
+            <input type="text" class="form-control" placeholder="Default input">
+          </div>
+          <hr>
+          <h6>ZFM</h6>
+          <hr>
+          <div class="form-group">
+            <label class="form-control-label"><span class="badge badge-soft-primary">TOTAL FUEL</span></label>
+            <input type="text" class="form-control" placeholder="Default input">
+          </div>
+          <hr>
+          <h6>Ramp</h6>
+          <hr>
+          <div class="form-group">
+            <label class="form-control-label"><span class="badge badge-soft-primary">TAXI FUEL</span></label>
+            <input type="text" class="form-control" placeholder="Default input">
+          </div>
+          <hr>
+          <h6>TOM</h6>
+          <hr>
+          <div class="form-group">
+            <label class="form-control-label"><span class="badge badge-soft-primary">TRIP FUEL</span></label>
+            <input type="text" class="form-control" placeholder="Default input">
+          </div>
+          <hr>
+          <h6>LDG</h6>
+          <hr>
+          <h6>C.G. Graph</h6>
+          <hr>
+          <button type="button" class="btn btn-soft-primary">
+            Calculate
+          </button>
+        </form>
+    </section>
   <footer>
     <p>Link to Documentation</p>
     <p>@2023 Ted Staggs - All Rights Reserved</p>
