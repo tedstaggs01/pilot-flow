@@ -5,8 +5,8 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
-router.get('/documentation', (req, res) => {
-    res.render('documentation')
-})
+/*router.get('/mb', (req, res) => {
+    res.render('mb')
+})*/
 
 module.exports = router
