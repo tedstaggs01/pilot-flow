@@ -1,4 +1,5 @@
 node_modules
-dist
-src
-public
+assets
+docs
+pages
+resources
