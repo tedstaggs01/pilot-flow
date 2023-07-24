@@ -3,153 +3,153 @@ function calculateResult() {
     switch (selectedOption) {
         case "lxaib":
             var resultlxaib = function lxaib() {
-                var bem; // -> change with A/C
-                var bemcg; 
-                var bemmo; 
+                var bem = 647; 
+                var bemcg = 2.112; 
+                var bemmo = bem * bemcg; 
                 var crew = document.getElementById("crew").value;
-                var crewcg; // -> change with A/C
-                var crewmo; 
+                var crewcg = 2.05; 
+                var crewmo = crew * crewcg; 
                 var pax = document.getElementById("pax").value;
-                var paxcg; // -> change with A/C
-                var paxmo; 
+                var paxcg = 2.993; 
+                var paxmo = pax * paxcg; 
                 var bag = document.getElementById("bag").value;
-                var bagcg; // -> change with A/C
-                var bagmo; 
+                var bagcg = 3.627; 
+                var bagmo = bag * bagcg; 
                 var zfm = bem + crew + pax + bag;
-                var zfmcg; 
-                var zfmmo;
+                var zfmmo = bemmo + crewmo + paxmo + bagmo;
+                var zfmcg = zfmmo / zfm; 
                 var totfuel = document.getElementById("totfuel").value;
-                var totfuelcg; // -> change with A/C
-                var totfuelmo; 
+                var totfuelcg = 2.413; 
+                var totfuelmo = totfuel * totfuelcg; 
                 var ramp = zfm + totfuel;
-                var rampcg; 
-                var rampmo; 
+                var rampmo = zfmmo + totfuelmo;
+                var rampcg = rampmo / ramp;  
                 var taxfuel = document.getElementById("taxfuel").value;
-                var taxfuelcg; 
-                var taxfuelmo; 
+                var taxfuelcg = totfuelcg; 
+                var taxfuelmo = taxfuel * taxfuelcg; 
                 var tom = ramp - taxfuel; 
-                var tomcg; 
-                var tommo; 
+                var tommo = rampmo - taxfuelmo;
+                var tomcg = tommo / tom;  
                 var trpfuel = document.getElementById("trpfuel").value;
-                var trpfuelcg; 
-                var trpfuelmo; 
+                var trpfuelcg = totfuelcg; 
+                var trpfuelmo = trpfuel * trpfuelcg; 
                 var ldg = tom - trpfuel; 
-                var ldgcg;
-                var ldgmo;  
+                var ldgmo = tommo - trpfuelmo;
+                var ldgcg = ldgmo / ldg;  
             }
             break;
 
         case "lxaif":
             var resultlxaif = function lxaif() {
-                var bem; // -> change with A/C
-                var bemcg; 
-                var bemmo; 
+                var bem = 653; 
+                var bemcg = 2.1278; 
+                var bemmo = bem * bemcg; 
                 var crew = document.getElementById("crew").value;
-                var crewcg; // -> change with A/C
-                var crewmo; 
+                var crewcg = 2.05; 
+                var crewmo = crew * crewcg; 
                 var pax = document.getElementById("pax").value;
-                var paxcg; // -> change with A/C
-                var paxmo; 
+                var paxcg = 2.993; 
+                var paxmo = pax * paxcg; 
                 var bag = document.getElementById("bag").value;
-                var bagcg; // -> change with A/C
-                var bagmo; 
+                var bagcg = 3.627; 
+                var bagmo = bag * bagcg; 
                 var zfm = bem + crew + pax + bag;
-                var zfmcg; 
-                var zfmmo;
+                var zfmmo = bemmo + crewmo + paxmo + bagmo;
+                var zfmcg = zfmmo / zfm; 
                 var totfuel = document.getElementById("totfuel").value;
-                var totfuelcg; // -> change with A/C
-                var totfuelmo; 
+                var totfuelcg = 2.413; 
+                var totfuelmo = totfuel * totfuelcg; 
                 var ramp = zfm + totfuel;
-                var rampcg; 
-                var rampmo; 
+                var rampmo = zfmmo + totfuelmo;
+                var rampcg = rampmo / ramp;  
                 var taxfuel = document.getElementById("taxfuel").value;
-                var taxfuelcg; 
-                var taxfuelmo; 
+                var taxfuelcg = totfuelcg; 
+                var taxfuelmo = taxfuel * taxfuelcg; 
                 var tom = ramp - taxfuel; 
-                var tomcg; 
-                var tommo; 
+                var tommo = rampmo - taxfuelmo;
+                var tomcg = tommo / tom;  
                 var trpfuel = document.getElementById("trpfuel").value;
-                var trpfuelcg; 
-                var trpfuelmo; 
+                var trpfuelcg = totfuelcg; 
+                var trpfuelmo = trpfuel * trpfuelcg; 
                 var ldg = tom - trpfuel; 
-                var ldgcg;
-                var ldgmo;  
+                var ldgmo = tommo - trpfuelmo;
+                var ldgcg = ldgmo / ldg;  
             }
             break;
 
         case "lxaig":
             var resultlxaig = function lxaig() {
-                var bem; // -> change with A/C
-                var bemcg; 
-                var bemmo; 
+                var bem = 683; 
+                var bemcg = 2.168; 
+                var bemmo = bem * bemcg; 
                 var crew = document.getElementById("crew").value;
-                var crewcg; // -> change with A/C
-                var crewmo; 
+                var crewcg = 2.05; 
+                var crewmo = crew * crewcg; 
                 var pax = document.getElementById("pax").value;
-                var paxcg; // -> change with A/C
-                var paxmo; 
+                var paxcg = 2.993; 
+                var paxmo = pax * paxcg; 
                 var bag = document.getElementById("bag").value;
-                var bagcg; // -> change with A/C
-                var bagmo; 
+                var bagcg = 3.627; 
+                var bagmo = bag * bagcg; 
                 var zfm = bem + crew + pax + bag;
-                var zfmcg; 
-                var zfmmo;
+                var zfmmo = bemmo + crewmo + paxmo + bagmo;
+                var zfmcg = zfmmo / zfm; 
                 var totfuel = document.getElementById("totfuel").value;
-                var totfuelcg; // -> change with A/C
-                var totfuelmo; 
+                var totfuelcg = 2.413; 
+                var totfuelmo = totfuel * totfuelcg; 
                 var ramp = zfm + totfuel;
-                var rampcg; 
-                var rampmo; 
+                var rampmo = zfmmo + totfuelmo;
+                var rampcg = rampmo / ramp;  
                 var taxfuel = document.getElementById("taxfuel").value;
-                var taxfuelcg; 
-                var taxfuelmo; 
+                var taxfuelcg = totfuelcg; 
+                var taxfuelmo = taxfuel * taxfuelcg; 
                 var tom = ramp - taxfuel; 
-                var tomcg; 
-                var tommo; 
+                var tommo = rampmo - taxfuelmo;
+                var tomcg = tommo / tom;  
                 var trpfuel = document.getElementById("trpfuel").value;
-                var trpfuelcg; 
-                var trpfuelmo; 
+                var trpfuelcg = totfuelcg; 
+                var trpfuelmo = trpfuel * trpfuelcg; 
                 var ldg = tom - trpfuel; 
-                var ldgcg;
-                var ldgmo;  
+                var ldgmo = tommo - trpfuelmo;
+                var ldgcg = ldgmo / ldg;  
             }
             break;
 
         case "lxaiw":
             var resultlxaiw = function lxaiw() {
-                var bem; // -> change with A/C
-                var bemcg; 
-                var bemmo; 
+                var bem = 706; 
+                var bemcg = 2.191; 
+                var bemmo = bem * bemcg; 
                 var crew = document.getElementById("crew").value;
-                var crewcg; // -> change with A/C
-                var crewmo; 
+                var crewcg = 2.05; 
+                var crewmo = crew * crewcg; 
                 var pax = document.getElementById("pax").value;
-                var paxcg; // -> change with A/C
-                var paxmo; 
+                var paxcg = 2.993; 
+                var paxmo = pax * paxcg; 
                 var bag = document.getElementById("bag").value;
-                var bagcg; // -> change with A/C
-                var bagmo; 
+                var bagcg = 3.627; 
+                var bagmo = bag * bagcg; 
                 var zfm = bem + crew + pax + bag;
-                var zfmcg; 
-                var zfmmo;
+                var zfmmo = bemmo + crewmo + paxmo + bagmo;
+                var zfmcg = zfmmo / zfm; 
                 var totfuel = document.getElementById("totfuel").value;
-                var totfuelcg; // -> change with A/C
-                var totfuelmo; 
+                var totfuelcg = 2.413; 
+                var totfuelmo = totfuel * totfuelcg; 
                 var ramp = zfm + totfuel;
-                var rampcg; 
-                var rampmo; 
+                var rampmo = zfmmo + totfuelmo;
+                var rampcg = rampmo / ramp;  
                 var taxfuel = document.getElementById("taxfuel").value;
-                var taxfuelcg; 
-                var taxfuelmo; 
+                var taxfuelcg = totfuelcg; 
+                var taxfuelmo = taxfuel * taxfuelcg; 
                 var tom = ramp - taxfuel; 
-                var tomcg; 
-                var tommo; 
+                var tommo = rampmo - taxfuelmo;
+                var tomcg = tommo / tom;  
                 var trpfuel = document.getElementById("trpfuel").value;
-                var trpfuelcg; 
-                var trpfuelmo; 
+                var trpfuelcg = totfuelcg; 
+                var trpfuelmo = trpfuel * trpfuelcg; 
                 var ldg = tom - trpfuel; 
-                var ldgcg;
-                var ldgmo;  
+                var ldgmo = tommo - trpfuelmo;
+                var ldgcg = ldgmo / ldg;  
             }
             break;
 
