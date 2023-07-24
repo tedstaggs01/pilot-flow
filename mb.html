@@ -8,6 +8,7 @@
     <meta name="author" content="Webpixels">
     <title>Pilot FLow</title>
     <!-- Preloader -->
+    <style src="/functions/mb.js"></style>
     <style>
         @keyframes hidePreloader {
             0% {
@@ -887,12 +888,20 @@
     <section>
         <form action="">
           <p>Select A/C to calculate Mass and Balance</p>
-          <select class="custom-select">
+          <select class="custom-select" id="airplanes">
               <option selected>Select Club Airplane</option>
-              <option value="1">LX-AIB [P28A]</option>
-              <option value="2">LX-AIF [P28A]</option>
-              <option value="3">LX-AIG [P28A]</option>
-              <option value="4">LX-AIW [P28A]</option>
+              <option value="lxaib">LX-AIB [P28A]</option>
+              <option value="lxaif">LX-AIF [P28A]</option>
+              <option value="lxaig">LX-AIG [P28A]</option>
+              <option value="lxaiw">LX-AIW [P28A]</option>
+              <option value="4">LX-AIC [C172N]</option>
+              <option value="4">LX-AID [C172N]</option>
+              <option value="4">LX-AIZ [C172N]</option>
+              <option value="4">LX-AIE [C172S]</option>
+              <option value="4">LX-AIO [C172S]</option>
+              <option value="4">LX-AIX [C182Q]</option>
+              <option value="4">LX-LTA [TWEN]</option>
+              <option value="4">LX-AIM [PA44]</option>
           </select>
           <p>Inputs</p>
           <h2>MASS AND BALANCE: </h2> <!--Change font; JS Selected A/C to be named-->
@@ -936,6 +945,10 @@
           <hr>
           <h6>C.G. Graph</h6>
           <hr>
+          <button type="button" class="btn btn-soft-primary">
+            Calculate
+          </button>
+          <br>
           <button type="button" class="btn btn-soft-primary">
               Generate Loadsheet
           </button>
