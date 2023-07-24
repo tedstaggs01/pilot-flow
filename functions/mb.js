@@ -18,6 +18,7 @@ function calculateResult() {
                 var zfm = bem + crew + pax + bag;
                 var zfmmo = bemmo + crewmo + paxmo + bagmo;
                 var zfmcg = zfmmo / zfm; 
+                document.getElementById("zfm").innerHTML = "Ramp mass =" + zfm +" | Ramp CG = " + zfmcg;
                 var totfuel = document.getElementById("totfuel").value;
                 var totfuelcg = 2.413; 
                 var totfuelmo = totfuel * totfuelcg; 
@@ -36,7 +37,7 @@ function calculateResult() {
                 var ldg = tom - trpfuel; 
                 var ldgmo = tommo - trpfuelmo;
                 var ldgcg = ldgmo / ldg;  
-            }
+            } 
             break;
 
         case "lxaif":

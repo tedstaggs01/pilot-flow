@@ -920,7 +920,7 @@
               <input type="number" class="form-control" placeholder="Default input" id="bag">
           </div>
           <hr>
-          <h6>ZFM</h6>
+          <h6>ZFM</h6><span id="zfm"></span>
           <hr>
           <div class="form-group">
               <label class="form-control-label"><span class="badge badge-soft-primary">TOTAL FUEL</span></label>
@@ -945,11 +945,11 @@
           <hr>
           <h6>C.G. Graph</h6>
           <hr>
-          <button type="button" class="btn btn-soft-primary">
+          <button type="button" class="btn btn-soft-primary" onclick="calculateResult()">
             Calculate
           </button>
           <br>
-          <button type="button" class="btn btn-soft-primary">
+          <button type="button" class="btn btn-soft-primary" onclick="calculateResult()">
               Generate Loadsheet
           </button>
         </form>
