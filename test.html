@@ -46,6 +46,7 @@
     <script>
         const data = { // add data in kg & m 
           "lxaib": {
+            name: "LX-AIB [P28A]",
             bem: 647,
             bemcg: 2.112,
             crewcg: 2.05,
@@ -64,6 +65,7 @@
             minmHH: 2325 
           },
           "lxaif": {
+            name: "LX-AIF [P28A]",
             bem: 653,
             bemcg: 2.1278,
             crewcg: 2.05,
@@ -82,6 +84,7 @@
             minmHH: 2325 
           },
           "lxaig": {
+            name: "LX-AIG [P28A]",
             bem: 683,
             bemcg: 2.168,
             crewcg: 2.05,
@@ -100,6 +103,7 @@
             minmHH: 2325 
           }, 
           "lxaiw": {
+            name: "LX-AIW [P28A]",
             bem: 706,
             bemcg: 2.191,
             crewcg: 2.05,
@@ -118,7 +122,6 @@
             minmHH: 2325 
           }
         }
-        
         let selected;
         
         function getselectvalue() {
@@ -212,7 +215,7 @@
             type: "scatter",
             data: {
               datasets: [{
-                label: "LX-AIB [P28A]",
+                label: selected.name,
                 pointRadius: 4,
                 pointBackgroundColor: "rgb(0,0,255)",
                 data: envelope,
