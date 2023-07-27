@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Code</title>
+    <title></title>
 </head>
 <body> 
     <select name="airplanes" id="list">
@@ -38,11 +38,13 @@
     <br>
     <button class="calc">Calculate</button>
     <br>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
     <!--CG CHART-->
-
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const data = { // add data in kg
+        const data = { // add data in kg & m 
           "lxaib": {
             bem: 647,
             bemcg: 2.112,
@@ -53,7 +55,13 @@
             maxramp: 1057.777, 
             maxtom: 1054.602, 
             maxlm: 1054.602,
-            maxbag: 22.6796
+            maxbag: 22.6796,
+            maxfwdcgL: 83,
+            maxfwdcgH: 87,
+            maxaftcg: 93,
+            minmL: 1200,
+            minmLH: 1950, 
+            minmHH: 2325 
           },
           "lxaif": {
             bem: 653,
@@ -121,6 +129,8 @@
           const zfm = bem + crew + pax + bag;
           const zfmmo = bemmo + crewmo + paxmo + bagmo; 
           const zfmcg = zfmmo / zfm;
+          const zfmlbs = zfm * 2.205;
+          const zfmcgin = zfmcg * 39.37; 
           document.getElementById("zfm").innerHTML = "Zero Fuel Mass: " + zfm + " kg | C.G.: " + zfmcg + " m";
           // RAMP: MASS / CG + Limitation
           const fuel = parseFloat(document.getElementById("fuel").value);
@@ -132,6 +142,8 @@
           if (ramp > selected.maxramp) {
             alert("Check Ramp Mass limitation!"); 
           }
+          const ramplbs = ramp * 2.205;
+          const rampcgin = rampcg * 39.37; 
           document.getElementById("ramp").innerHTML = "Ramp Mass: " + ramp + " kg | C.G.: " + rampcg + " m";  
           // TOM: MASS / CG 
           const taxi = parseFloat(document.getElementById("taxi").value); 
@@ -140,9 +152,11 @@
           const tom = ramp - taxi; 
           const tommo = rampmo - taximo; 
           const tomcg = tommo / tom; 
-          if (maxtom > selected.maxtom) {
+          if (tom > selected.maxtom) {
             alert("Check Ramp Mass Limitation!"); 
           }
+          const tomlbs = tom * 2.205;
+          const tomcgin = tomcg * 39.37; 
           document.getElementById("tom").innerHTML = "Take-off Mass: " + tom + " kg | C.G.: " + tomcg + " m";
           // LM: MASS / CG 
           const trip = parseFloat(document.getElementById("trip").value);
@@ -154,7 +168,56 @@
           if (lm > selected.maxlm) {
             alert("Check Landing Mass Limitation!"); 
           }
+          const lmlbs = lm * 2.205;
+          const lmcgin = lmcg * 39.37; 
           document.getElementById("lm").innerHTML = "Landing Mass: " + tom + " kg | C.G.: " + tomcg + " m";
+
+          // CG graph 
+
+          var envelope = [
+            {x: selected.maxfwdcgL, y: selected.minmL},
+            {x:selected.maxfwdcgL, y:selected.minmLH},
+            {x:selected.maxfwdcgH, y:selected.minmHH},
+            {x:selected.maxaftcg, y:selected.minmHH},
+            {x:selected.maxaftcg, y:selected.minmL},
+            {x:selected.maxfwdcgL, y:selected.minmL}
+          ];
+          
+          var mb = [
+            {x:rampcgin , y:ramplbs},
+            {x:tomcgin, y: tomlbs},
+            {x:lmcgin, y: lmlbs}, 
+            {x:zfmcgin, y: zfmlbs}
+          ]
+          
+          new Chart("myChart", {
+            type: "scatter",
+            data: {
+              datasets: [{
+                label: "LX-AIB [P28A]",
+                pointRadius: 4,
+                pointBackgroundColor: "rgb(0,0,255)",
+                data: envelope,
+                showLine: true,
+                fill: true
+              },
+              {
+                label: "Values",
+                pointRadius: 4,
+                pointBackgroundColor: "rgb(0,0,255)",
+                data: mb,
+                showLine: true,
+              }
+            ]
+            },
+            options: {
+              legend: {display: true},
+              scales: {
+                xAxes: [{ticks: {min: 80, max:90}}],
+                yAxes: [{ticks: {min: 1000, max:2500}}],
+              }
+            }
+          });
         }
         
         getselectvalue();
@@ -164,6 +227,9 @@
         
         calc.addEventListener("click",zfm);
         planes.addEventListener("change",getselectvalue);
+
+
+
     </script>
 
 </body>

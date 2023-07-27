@@ -12,6 +12,7 @@
     "aos": "^3.0.0-beta.6",
     "bigpicture": "^2.6.2",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.2",
     "choices.js": "^10.2.0",
     "countup.js": "^2.3.2",
     "dropzone": "^5.9.3",
