@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Code</title>
+</head>
+<body>
+    <select name="airplanes" id="list">
+        <option value="lxaib">LXAIB</option>
+        <option value="lxaif">LXAIF</option>
+        <option value="lxaig">LXAIG</option>
+    </select>
+    <br>
+    <input type="number" name="crew" id="crew" placeholder="crew">
+    <br>
+    <input type="number" name=" pax" id="pax" placeholder="pax">
+    <br>
+    <input type="number" name="baggage" id="baggage" placeholder="baggage">
+    <br>
+    <span id="zfm">ZFM</span>
+    <br>
+    <input type="number" name="fuel" id="fuel" placeholder="fuel">
+    <br>
+    <span id="ramp">RAMP</span>
+    <br>
+    <input type="number" name="taxi" id="taxi" placeholder="taxi">
+    <br>
+    <span id="tom">TOM</span>
+    <br>
+    <input type="number" name="trip" id="trip" placeholder="trip">
+    <br>
+    <span id="lm">LM</span>
+    <br>
+    <span id="test"></span>
+    <br>
+    <span id="zfm"></span>
+    <br>
+    <button class="calc">Calculate</button>
+
+    <script>
+        const data = {
+          "lxaib": {
+            bem: 647,
+            bemcg: 2.112,
+            crewcg: 2.05,
+            paxcg: 2.993,
+            bagcg: 3.627,
+            fuelcg: 2.413,
+          },
+          "lxaif": {
+            bem: 653,
+            bemcg: 2.1278,
+            crewcg: 2.05,
+            paxcg: 2.993,
+            bagcg: 3.627,
+            fuelcg: 2.413,
+          },
+          "lxaig": {
+            bem: 683,
+            bemcg: 2.168,
+            crewcg: 2.05,
+            paxcg: 2.993,
+            bagcg: 3.627,
+            fuelcg: 2.413,
+          }
+        }
+        
+        let selected;
+        
+        function getselectvalue() {
+          const selectedvalue = document.getElementById("list").value;
+          selected = data[selectedvalue];
+          document.getElementById("test").innerHTML = selectedvalue;
+        }
+        
+        function zfm() {
+          // ZFM: MASS / CG 
+          const bem = selected.bem; 
+          const bemcg = selected.bemcg;
+          const bemmo = bem * bemcg; 
+          const crew = parseFloat(document.getElementById("crew").value);
+          const crewcg = selected.crewcg; 
+          const crewmo = crew * crewcg; 
+          const pax = parseFloat(document.getElementById("pax").value);
+          const paxcg = selected.paxcg; 
+          const paxmo = pax * paxcg; 
+          const bag = parseFloat(document.getElementById("baggage").value);
+          const bagcg = selected.bagcg; 
+          const bagmo = bag * bagcg; 
+          const zfm = bem + crew + pax + bag;
+          const zfmmo = bemmo + crewmo + paxmo + bagmo; 
+          const zfmcg = zfmmo / zfm; 
+          document.getElementById("zfm").innerHTML = "Zero Fuel Mass: " + zfm + " kg | C.G.: " + zfmcg + " m";
+          // RAMP: MASS / CG 
+          const fuel = parseFloat(document.getElementById("fuel").value);
+          const fuelcg = selected.fuelcg;
+          const fuelmo = fuel * fuelcg; 
+          const ramp = zfm + fuel; 
+          const rampmo = zfmmo + fuelmo; 
+          const rampcg = rampmo / ramp; 
+          document.getElementById("ramp").innerHTML = "Ramp Mass: " + ramp + " kg | C.G.: " + rampcg + " m";  
+          // TOM: MASS / CG 
+          const taxi = parseFloat(document.getElementById("taxi").value); 
+          const taxicg = selected.fuelcg; 
+          const taximo = taxi * taxicg; 
+          const tom = ramp - taxi; 
+          const tommo = rampmo - taximo; 
+          const tomcg = tommo / tom; 
+          document.getElementById("tom").innerHTML = "Take-off Mass: " + tom + " kg | C.G.: " + tomcg + " m";
+          // LM: MASS / CG 
+          const trip = parseFloat(document.getElementById("trip").value);
+          const tripcg = selected.fuelcg; 
+          const tripmo = trip * tripcg; 
+          const lm = tom - trip; 
+          const lmmo = tommo - tripmo; 
+          const lmcg = lmmo / lm; 
+          document.getElementById("lm").innerHTML = "Landing Mass: " + tom + " kg | C.G.: " + tomcg + " m";
+        }
+        
+        getselectvalue();
+        
+        const calc = document.querySelector(".calc");
+        const planes = document.querySelector("#list");
+        
+        calc.addEventListener("click",zfm);
+        planes.addEventListener("change",getselectvalue);
+    </script>
+
+</body>
+</html>

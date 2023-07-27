@@ -4,6 +4,7 @@ function calculateResult() {
         case "lxaib":
             var resultlxaib = function lxaib() {
                 var bem = 647; 
+                console.log(bem); 
                 var bemcg = 2.112; 
                 var bemmo = bem * bemcg; 
                 console.log(bem);
@@ -38,8 +39,7 @@ function calculateResult() {
                 var ldg = tom - trpfuel; 
                 var ldgmo = tommo - trpfuelmo;
                 var ldgcg = ldgmo / ldg;  
-            }
-            lxaib();  
+            } 
             break;
 
         case "lxaif":
