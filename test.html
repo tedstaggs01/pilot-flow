@@ -42,7 +42,7 @@
 
 
     <script>
-        const data = { // add data ... 
+        const data = { // add data in kg
           "lxaib": {
             bem: 647,
             bemcg: 2.112,
@@ -50,6 +50,10 @@
             paxcg: 2.993,
             bagcg: 3.627,
             fuelcg: 2.413,
+            maxramp: 1057.777, 
+            maxtom: 1054.602, 
+            maxlm: 1054.602,
+            maxbag: 22.6796
           },
           "lxaif": {
             bem: 653,
@@ -58,6 +62,10 @@
             paxcg: 2.993,
             bagcg: 3.627,
             fuelcg: 2.413,
+            maxramp: 1057.777, 
+            maxtom: 1054.602, 
+            maxlm: 1054.602,
+            maxbag: 22.6796
           },
           "lxaig": {
             bem: 683,
@@ -66,6 +74,10 @@
             paxcg: 2.993,
             bagcg: 3.627,
             fuelcg: 2.413,
+            maxramp: 1057.777, 
+            maxtom: 1054.602, 
+            maxlm: 1054.602,
+            maxbag: 22.6796
           }, 
           "lxaiw": {
             bem: 706,
@@ -74,6 +86,10 @@
             paxcg: 2.993,
             bagcg: 3.627,
             fuelcg: 2.413,
+            maxramp: 1057.777, 
+            maxtom: 1054.602, 
+            maxlm: 1054.602,
+            maxbag: 22.6796
           }
         }
         
@@ -86,7 +102,7 @@
         }
         
         function zfm() { // change name of function
-          // ZFM: MASS / CG 
+          // ZFM: MASS / CG + Limitation
           const bem = selected.bem; 
           const bemcg = selected.bemcg;
           const bemmo = bem * bemcg; 
@@ -97,19 +113,25 @@
           const paxcg = selected.paxcg; 
           const paxmo = pax * paxcg; 
           const bag = parseFloat(document.getElementById("baggage").value);
+          if (bag > selected.maxbag){
+            alert("Check baggage compartment mass limitation!"); 
+          }
           const bagcg = selected.bagcg; 
           const bagmo = bag * bagcg; 
           const zfm = bem + crew + pax + bag;
           const zfmmo = bemmo + crewmo + paxmo + bagmo; 
-          const zfmcg = zfmmo / zfm; 
+          const zfmcg = zfmmo / zfm;
           document.getElementById("zfm").innerHTML = "Zero Fuel Mass: " + zfm + " kg | C.G.: " + zfmcg + " m";
-          // RAMP: MASS / CG 
+          // RAMP: MASS / CG + Limitation
           const fuel = parseFloat(document.getElementById("fuel").value);
           const fuelcg = selected.fuelcg;
           const fuelmo = fuel * fuelcg; 
           const ramp = zfm + fuel; 
           const rampmo = zfmmo + fuelmo; 
           const rampcg = rampmo / ramp; 
+          if (ramp > selected.maxramp) {
+            alert("Check Ramp Mass limitation!"); 
+          }
           document.getElementById("ramp").innerHTML = "Ramp Mass: " + ramp + " kg | C.G.: " + rampcg + " m";  
           // TOM: MASS / CG 
           const taxi = parseFloat(document.getElementById("taxi").value); 
@@ -118,6 +140,9 @@
           const tom = ramp - taxi; 
           const tommo = rampmo - taximo; 
           const tomcg = tommo / tom; 
+          if (maxtom > selected.maxtom) {
+            alert("Check Ramp Mass Limitation!"); 
+          }
           document.getElementById("tom").innerHTML = "Take-off Mass: " + tom + " kg | C.G.: " + tomcg + " m";
           // LM: MASS / CG 
           const trip = parseFloat(document.getElementById("trip").value);
@@ -126,6 +151,9 @@
           const lm = tom - trip; 
           const lmmo = tommo - tripmo; 
           const lmcg = lmmo / lm; 
+          if (lm > selected.maxlm) {
+            alert("Check Landing Mass Limitation!"); 
+          }
           document.getElementById("lm").innerHTML = "Landing Mass: " + tom + " kg | C.G.: " + tomcg + " m";
         }
         
