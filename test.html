@@ -4,11 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Code</title>
 </head>
-<body>
+<body> 
     <select name="airplanes" id="list">
-        <option value="lxaib">LXAIB</option>
-        <option value="lxaif">LXAIF</option>
-        <option value="lxaig">LXAIG</option>
+        <option value="lxaib">LX-AIB [P28A]</option>
+        <option value="lxaif">LX-AIF [P28A]</option>
+        <option value="lxaig">LX-AIG [P28A]</option>
+        <option value="lxaiw">LX-AIW [P28A]</option>
     </select>
     <br>
     <input type="number" name="crew" id="crew" placeholder="crew">
@@ -18,7 +19,7 @@
     <input type="number" name="baggage" id="baggage" placeholder="baggage">
     <br>
     <span id="zfm">ZFM</span>
-    <br>
+    <br> <!--Enter fuel in kg but l can be used ? density?-->
     <input type="number" name="fuel" id="fuel" placeholder="fuel">
     <br>
     <span id="ramp">RAMP</span>
@@ -36,9 +37,12 @@
     <span id="zfm"></span>
     <br>
     <button class="calc">Calculate</button>
+    <br>
+    <!--CG CHART-->
+
 
     <script>
-        const data = {
+        const data = { // add data ... 
           "lxaib": {
             bem: 647,
             bemcg: 2.112,
@@ -62,6 +66,14 @@
             paxcg: 2.993,
             bagcg: 3.627,
             fuelcg: 2.413,
+          }, 
+          "lxaiw": {
+            bem: 706,
+            bemcg: 2.191,
+            crewcg: 2.05,
+            paxcg: 2.993,
+            bagcg: 3.627,
+            fuelcg: 2.413,
           }
         }
         
@@ -73,7 +85,7 @@
           document.getElementById("test").innerHTML = selectedvalue;
         }
         
-        function zfm() {
+        function zfm() { // change name of function
           // ZFM: MASS / CG 
           const bem = selected.bem; 
           const bemcg = selected.bemcg;

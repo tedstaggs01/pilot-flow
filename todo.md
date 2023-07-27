@@ -3,18 +3,8 @@ Documentation file => provides all the explanations to the calculations and impl
 Divided: Mass and Balance | Fuel Calculations | CG 
 Disclaimer!!! 
 ------------------------
-
-1. Mass and Balance:
-Enter A/C 
-Enter: 1st Station
-Enter: 2nd Station
-Enter: Baggage
-Enter: Fuel
-Enter: Taxi
-Enter: Trip
-=> KISS 
-=> Grpahic
-=> Loadsheet
+Green if MB is correct => easiest
+RED if MB is out of limits: + print limitation ... <>
 
 make metric vs non-metric switch or both calc. 
 store data values on server
