@@ -62,7 +62,13 @@
             maxaftcg: 93,
             minmL: 1200,
             minmLH: 1950, 
-            minmHH: 2325 
+            minmHH: 2325,
+            maxfwdcgUL: 83,
+            maxfwdcgUH: 83.8,
+            maxaftcgU: 93, 
+            minUL: 1200,
+            minUH: 1950,
+            minUHH: 2020 
           },
           "lxaif": {
             name: "LX-AIF [P28A]",
@@ -81,7 +87,13 @@
             maxaftcg: 93,
             minmL: 1200,
             minmLH: 1950, 
-            minmHH: 2325 
+            minmHH: 2325,
+            maxfwdcgUL: 83,
+            maxfwdcgUH: 83.8,
+            maxaftcgU: 93, 
+            minUL: 1200,
+            minUH: 1950,
+            minUHH: 2020 
           },
           "lxaig": {
             name: "LX-AIG [P28A]",
@@ -100,7 +112,13 @@
             maxaftcg: 93,
             minmL: 1200,
             minmLH: 1950, 
-            minmHH: 2325 
+            minmHH: 2325,
+            maxfwdcgUL: 83,
+            maxfwdcgUH: 83.8,
+            maxaftcgU: 93, 
+            minUL: 1200,
+            minUH: 1950,
+            minUHH: 2020 
           }, 
           "lxaiw": {
             name: "LX-AIW [P28A]",
@@ -119,7 +137,13 @@
             maxaftcg: 93,
             minmL: 1200,
             minmLH: 1950, 
-            minmHH: 2325 
+            minmHH: 2325,
+            maxfwdcgUL: 83,
+            maxfwdcgUH: 83.8,
+            maxaftcgU: 93, 
+            minUL: 1200,
+            minUH: 1950,
+            minUHH: 2020 
           }
         }
         let selected;
@@ -203,6 +227,14 @@
             {x:selected.maxaftcg, y:selected.minmL},
             {x:selected.maxfwdcgL, y:selected.minmL}
           ];
+
+          var utility = [
+            {x:selected.maxfwdcgUL , y:selected.minUL},
+            {x:selected.maxfwdcgUL, y:selected.minUH},
+            {x:selected.maxfwdcgUH, y:selected.minUHH},
+            {x:selected.maxaftcgU, y: selected.minUHH},
+            {x:selected.maxaftcgU, y: selected.minUL},
+          ];
           
           var mb = [
             {x:rampcgin , y:ramplbs},
@@ -219,6 +251,14 @@
                 pointRadius: 4,
                 pointBackgroundColor: "rgb(0,0,255)",
                 data: envelope,
+                showLine: true,
+                fill: true
+              },
+              {
+                label: "Utility",
+                pointRadius: 4,
+                pointBackgroundColor: "rgb(255, 36, 0,)",
+                data: utility,
                 showLine: true,
                 fill: true
               },
