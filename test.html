@@ -190,7 +190,7 @@
           const zfmcg = zfmmo / zfm;
           const zfmlbs = zfm * 2.205;
           const zfmcgin = zfmcg * 39.37; 
-          document.getElementById("zfm").innerHTML = "Zero Fuel Mass: " + zfm + " kg | C.G.: " + zfmcg + " m";
+          document.getElementById("zfm").innerHTML = "Zero Fuel Mass: " + zfm.toFixed(2) + " kg" + " (" + zfmlbs.toFixed(2) + " lbs) | C.G.: " + zfmcg.toFixed(2) + " m (" + zfmcgin.toFixed(2) + " in)";
           // RAMP: MASS / CG + Limitation
           const fuel = parseFloat(document.getElementById("fuel").value);
           const fuelcg = selected.fuelcg;
@@ -203,7 +203,7 @@
           }
           const ramplbs = ramp * 2.205;
           const rampcgin = rampcg * 39.37; 
-          document.getElementById("ramp").innerHTML = "Ramp Mass: " + ramp + " kg | C.G.: " + rampcg + " m";  
+          document.getElementById("ramp").innerHTML = "Ramp Mass: " + ramp.toFixed(2) + " kg" + " (" + ramplbs.toFixed(2) + " lbs) | C.G.: " + rampcg.toFixed(2) + " m (" + rampcgin.toFixed(2) + " in)";
           // TOM: MASS / CG 
           const taxi = parseFloat(document.getElementById("taxi").value); 
           const taxicg = selected.fuelcg; 
@@ -216,7 +216,7 @@
           }
           const tomlbs = tom * 2.205;
           const tomcgin = tomcg * 39.37; 
-          document.getElementById("tom").innerHTML = "Take-off Mass: " + tom + " kg | C.G.: " + tomcg + " m";
+          document.getElementById("tom").innerHTML = "Take-off Mass: " + tom.toFixed(2) + " kg" + " (" + tomlbs.toFixed(2) + " lbs) | C.G.: " + tomcg.toFixed(2) + " m (" + tomcgin.toFixed(2) + " in)";
           // LM: MASS / CG 
           const trip = parseFloat(document.getElementById("trip").value);
           const tripcg = selected.fuelcg; 
@@ -229,7 +229,7 @@
           }
           const lmlbs = lm * 2.205;
           const lmcgin = lmcg * 39.37; 
-          document.getElementById("lm").innerHTML = "Landing Mass: " + tom + " kg | C.G.: " + tomcg + " m";
+          document.getElementById("lm").innerHTML = "Landing Mass: " + lm.toFixed(2) + " kg" + " (" + lmlbs.toFixed(2) + " lbs) | C.G.: " + lmcg.toFixed(2) + " m (" + lmcgin.toFixed(2) + " in)";
 
           // CG graph 
 
